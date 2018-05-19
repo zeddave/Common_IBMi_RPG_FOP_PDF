@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+	<pages>
+		<page>
+			<line><![CDATA[Order Acknowledgment                                                               11/09/16  10:44   PAGE  1]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[                                                                                              ORDER#]]></line>
+			<line><![CDATA[                                                                                              219635]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[     BILL TO:                           SHIP TO:                           REMIT TO:]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[     DARREN & SHAMOUN INTERIORS         DARREN & SHEMAUN INTERIORS         DAVID MOSLEY SUPPLY]]></line>
+			<line><![CDATA[     1001 CANDY ROAD                    1001 CANDY ROAD                    211156 COMMERCE LANE]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[     NORTHHILLS            MI 12345     NORTHHILLS            MI 12345     FARMINGTON HILLS,     MI 12345]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[ORDER DT--DATE REQ--SHIP VIA------F.O.B.--------ACCOUNT#---CUST P.O.#/JOB----TERMS--------ORDER REFERENCES--]]></line>
+			<line><![CDATA[10/26/16  11/02/16  WILL CALL     OUR WAREHOUSE  003625   DAVID V.        NET  C.O.D.      011/2569321/O DT]]></line>
+			<line><![CDATA[                                                                                            C1/FH1/DST]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[LINE#----ITEM#--------------DESCRIPTION------------------SHIP DATE--QTY ORD----U/M-----UNIT PRICE-----PRICE-]]></line>
+			<line><![CDATA[0010     ARM68281401        THIS IS A TEST DESCRIPTION    12/25/99      100    SF        $1.95      $195.00]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[0020     ARM68281401        THIS IS A TEST DESCRIPTION    12/25/99      100    SF        $1.95      $195.00]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[0030     ARM68281401        THIS IS A TEST DESCRIPTION    12/25/99      100    SF        $1.95      $195.00]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[0040     ARM68281401        THIS IS A TEST DESCRIPTION    12/25/99      100    SF        $1.95      $195.00]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[0050     ARM68281401        THIS IS A TEST DESCRIPTION    12/25/99      100    SF        $1.95      $195.00]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[0060     ARM68281401        THIS IS A TEST DESCRIPTION    12/25/99      100    SF        $1.95      $195.00]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[0070     ARM68281401        THIS IS A TEST DESCRIPTION    12/25/99      100    SF        $1.95      $195.00]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[0080     ARM68281401        THIS IS A TEST DESCRIPTION    12/25/99      100    SF        $1.95      $195.00]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[0090     ARM68281401        THIS IS A TEST DESCRIPTION    12/25/99      100    SF        $1.95      $195.00]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[0100     ARM68281401        THIS IS A TEST DESCRIPTION    12/25/99      100    SF        $1.95      $195.00]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[                                                 BAMEX209620                      TOTAL PRICE $         .00]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[     * CASH / COD *   Open Order $       .00   * CASH / COD *]]></line>
+			<line><![CDATA[Order Acknowledgment      222-333-5555               FAX# 111-222-4444]]></line>
+			<line><![CDATA[ ]]></line>
+			<line><![CDATA[                                                                                 TOTAL AMOUNT $         .00]]></line>
+			<line><![CDATA[                                                                                      Deposit $         .00]]></line>
+			<line><![CDATA[                                                                                  Balance Due $         .00]]></line>
+		</page>
+	</pages>
+</report>

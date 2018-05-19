@@ -1,0 +1,229 @@
+1) Original XML.
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<line>
+		Hello World
+	</line>
+</data>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+###- Change main Template from '/' to "data"...
+	<xsl:template match="data">
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<line1>
+		Hello World 1
+	</line1>
+	<line2>
+		Hello World 2
+	</line2>
+</data>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+<!-- IMAGE Example -->					
+					<fo:block-container absolute-position="fixed" left="5mm" right="15mm" top="40mm" height="200px" background-color="blue">
+						<fo:block margin-top="5mm"> 
+							<fo:external-graphic height="160px" content-width="scale-down-to-fit" scaling="uniform" content-height="scale-down-to-fit">
+								<xsl:attribute name="src">JW Quote.jpg</xsl:attribute>
+							</fo:external-graphic>	
+						</fo:block>
+					</fo:block-container>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+### - Incorporate Template usage
+
+				<!-- Body Section -->
+				<fo:flow flow-name="main-page-body">
+					<fo:block-container absolute-position="fixed" left="50mm" top="2mm" right="10mm">
+						<fo:block>     
+					  		<xsl:value-of select="/data/line1"/>
+							<xsl:apply-templates/> 
+						</fo:block>
+					</fo:block-container>
+ 				</fo:flow>
+
+
+  <xsl:template match="line1">
+  	<fo:block>
+  		<xsl:value-of select="."/>
+  	</fo:block>
+ </xsl:template>
+
+  <xsl:template match="line2">
+  	<fo:block>
+  		<xsl:value-of select="."/>
+  	</fo:block>
+ </xsl:template>
+ 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+
+ 					<fo:block-container absolute-position="fixed" left="10mm" right="10mm" top="25mm">
+						<fo:block>     
+							<fo:table table-layout="fixed" width="100%" border="1px solid #000000">
+								<fo:table-column column-width="25%"/>									
+								<fo:table-column column-width="proportional-column-width(1)"/>									
+								<fo:table-body>
+									<fo:table-row height="10mm">
+										<fo:table-cell background-color="yellow" display-align="center"> 
+											<fo:block>
+												Column 1
+											</fo:block> 
+										</fo:table-cell>
+										<fo:table-cell background-color="orange" text-align="right"> 
+											<fo:block>
+												Column 2
+											</fo:block> 
+										</fo:table-cell>
+									</fo:table-row>
+								</fo:table-body>
+							</fo:table>
+						</fo:block>
+					</fo:block-container>
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+<!-- Be sure to remove IMAGE Example, above -->					
+
+  <xsl:include href="HellowWorld2.xsl" />   
+  
+  						<xsl:call-template name="banner" />
+  
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+	<!-- Styles -->
+	<xsl:attribute-set name="line1-style">
+		<xsl:attribute name="background-color">blue</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>			
+	<xsl:attribute-set name="line2-style">
+		<xsl:attribute name="background-color">yellow</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>			
+
+
+  <xsl:template match="line1">
+  	<fo:block xsl:use-attribute-sets="line1-style">
+  		<xsl:value-of select="."/>
+  	</fo:block>
+ </xsl:template>
+
+  <xsl:template match="line2">
+  	<fo:block xsl:use-attribute-sets="line2-style">
+  		<xsl:value-of select="."/>
+  	</fo:block>
+ </xsl:template>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+2) XML Change.
+
+	<employees>
+		<employee empid="1">
+			<firstname>Tony</firstname>
+			<firstname>Stark</firstname>
+		</employee>
+		<employee empid="2">
+			<firstname>Thor</firstname>
+			<firstname>Odinson</firstname>
+		</employee>
+		<employee empid="3">
+			<firstname>Steve</firstname>
+			<firstname>Rodgers</firstname>
+		</employee>
+		<employee empid="4">
+			<firstname>Bruce</firstname>
+			<firstname>Banner</firstname>
+		</employee>
+		<employee empid="5">
+			<firstname>Clint</firstname>
+			<firstname>Barton</firstname>
+		</employee>
+		<employee empid="6">
+			<firstname>Natasha</firstname>
+			<firstname>Romanoff</firstname>
+		</employee>
+		<employee empid="7">
+			<firstname>Scott</firstname>
+			<firstname>Lang</firstname>
+		</employee>
+	</employees>
+
+
+						<fo:block>     
+							<fo:table table-layout="fixed" width="100%" border="1px solid #000000">
+								<fo:table-column column-width="10mm"/>
+								<fo:table-column column-width="150mm"/>
+								<fo:table-header>
+									<fo:table-row height="6mm">
+										<fo:table-cell display-align="center" number-columns-spanned="2"> 
+											<fo:block text-align="center">
+												Avenger's Employee Listing
+											</fo:block> 
+										</fo:table-cell>
+									</fo:table-row>
+									<fo:table-row height="6mm">
+										<fo:table-cell display-align="center"> 
+											<fo:block text-align="center">
+												ID
+											</fo:block> 
+										</fo:table-cell>
+										<fo:table-cell display-align="center"> 
+											<fo:block text-align="center">
+												Full Name
+											</fo:block> 
+										</fo:table-cell>
+									</fo:table-row>
+								</fo:table-header>
+								
+								<xsl:if test="//employee">
+									<fo:table-body>
+										<xsl:for-each select="//employee">
+											<fo:table-row height="8mm">
+												<fo:table-cell border="1px solid #000000" text-align="left" display-align="center"> 
+													<fo:block> 
+														<xsl:value-of select="@empid"/>
+													</fo:block> 
+												</fo:table-cell>
+												<fo:table-cell border="1px solid #000000" text-align="left" display-align="center"> 
+													<fo:block> 
+														<xsl:value-of select="firstname"/>
+														<fo:inline padding-left="5px"> 
+															<xsl:value-of select="lastname"/>
+														</fo:inline>	 
+													</fo:block> 
+												</fo:table-cell>
+											</fo:table-row>
+										</xsl:for-each>
+									</fo:table-body>
+								</xsl:if>
+								
+							</fo:table>
+						</fo:block>
+
+
+### - To show Sorting
+											<xsl:sort select="lastname" />
+
+###  - To show begins/starts with  XPATH
+										<xsl:for-each select="//employee[starts-with(lastname,'B')]">
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+<!--  NOTES:  -->
+<!-- 1in to 25.4 mm -->
+<!-- 11in to 279.4 mm -->
+<!-- 8.5in to 215.9 mm -->
+<!-- 1mm to 3.8px  -->
+
+						
+ 

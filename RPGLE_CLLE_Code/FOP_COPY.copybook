@@ -1,0 +1,137 @@
+**FREE
+
+  // -- Constants
+  // ---- java.io.*
+  dcl-c bufferedOutputStream  'java.io.BufferedOutputStream';
+  dcl-c file                  'java.io.File';
+  dcl-c fileOutputStream      'java.io.FileOutputStream';
+  dcl-c outputStream          'java.io.OutputStream';
+  dcl-c PrintStream           'java.io.PrintStream';
+  // ---- java.lang.*
+  dcl-c object                'java.lang.Object';
+  dcl-c string                'java.lang.String';
+  dcl-c System_java           'java.lang.System';
+  // ---- java.net.*
+  dcl-c uri                   'java.net.URI';
+  // ---- org.xml.sax.*
+  dcl-c contentHandler        'org.xml.sax.ContentHandler';
+  dcl-c defaultHandler        'org.xml.sax.helpers.DefaultHandler';
+  // ---- org.apache.fop.*
+  dcl-c fop                   'org.apache.fop.apps.Fop';
+  dcl-c fopFactory            'org.apache.fop.apps.FopFactory';
+  dcl-c fopFactoryBuilder     'org.apache.fop.apps.FopFactoryBuilder';
+  dcl-c foUserAgent           'org.apache.fop.apps.FOUserAgent';
+  // ---- javax.xml.transform.*
+  dcl-c result                'javax.xml.transform.Result';
+  dcl-c saxResult             'javax.xml.transform.sax.SAXResult';
+  dcl-c source                'javax.xml.transform.Source';
+  dcl-c streamSource          'javax.xml.transform.stream.StreamSource';
+  dcl-c transformer           'javax.xml.transform.Transformer';
+  dcl-c transformerFactory    'javax.xml.transform.TransformerFactory';
+
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // -- Initializes a newly created String object
+  dcl-pr @String          object(*JAVA: string) extproc(*JAVA: string: *constructor);
+    dcl-parm inValue      varchar(32767) const;
+  end-pr;
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // --
+  dcl-pr @File            object(*JAVA: file) extproc(*JAVA: file: *constructor);
+    dcl-parm inLocation   object(*JAVA: string) const;
+  end-pr;
+  // --
+  dcl-pr @File$toURI  object(*JAVA: uri) extproc(*JAVA: file: 'toURI') end-pr;
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  dcl-pr @System$setErr    extproc(*JAVA: System_java: 'setErr')  static;
+   dcl-parm inPrintStream  object(*JAVA: PrintStream) const;
+  end-pr;
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  dcl-pr @System$setOut    extproc(*JAVA: System_java: 'setOut')  static;
+   dcl-parm inPrintStream  object(*JAVA: PrintStream) const;
+  end-pr;
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  dcl-pr @PrintStream     object(*JAVA: PrintStream) extproc(*JAVA: PrintStream: *constructor);
+   dcl-parm inStreamfile  object(*JAVA: OutputStream)  const;
+  end-pr;
+  // --
+  dcl-pr @PrintStream$close  extproc(*JAVA: PrintStream: 'close')  end-pr;
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // --
+  dcl-pr @FopFactoryBuilder    object(*JAVA: fopFactoryBuilder) extproc(*JAVA: fopFactoryBuilder: *constructor);
+    dcl-parm inDefaultBaseURI  object(*JAVA: uri) const;
+  end-pr;
+  // --
+  dcl-pr @FactoryBuilder#setStrictFOValidation object(*JAVA: fopFactoryBuilder) extproc(*JAVA: fopFactoryBuilder: 'setStrictFOValidation');
+    dcl-parm inValidateStrictly  ind  value;
+  end-pr;
+  // --
+  dcl-pr @FactoryBuilder#build  object(*JAVA: fopFactory)  extproc(*JAVA: fopFactoryBuilder: 'build') end-pr;
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // --
+  dcl-pr @Fop#getDefaultHandler  object(*JAVA: defaultHandler) extproc(*JAVA: fop: 'getDefaultHandler') end-pr;
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // --
+  dcl-pr @FopFactory#newInstance  object(*JAVA: fopFactory) extproc(*JAVA: fopFactory: 'newInstance')  static  end-pr;
+  // --
+  dcl-pr @FopFactory#newFOUserAgent  object(*JAVA: foUserAgent) extproc(*JAVA: fopFactory: 'newFOUserAgent')  end-pr;
+  // --
+  dcl-pr @FopFactory#newFOP     object(*JAVA: fop) extproc(*JAVA: fopFactory: 'newFop');
+    dcl-parm inOutputFormat     object(*JAVA: string) const;
+    dcl-parm inFOUserAgent      object(*JAVA: foUserAgent) const;
+    dcl-parm inOutputStream     object(*JAVA: outputStream) const;
+  end-pr;
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // --
+  dcl-pr @FileOutputStream   object(*JAVA: fileOutputStream) extproc(*JAVA: fileOutputStream: *constructor);
+    dcl-parm inNewPDFFile    object(*JAVA: string) const;
+  end-pr;
+  // --
+  dcl-pr @FileOutputStream#close   extproc(*JAVA: fileOutputStream: 'close')  end-pr;
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // --
+  dcl-pr @StreamSource      object(*JAVA: streamSource) extproc(*JAVA: streamSource: *constructor);
+    dcl-parm inXSLFile      object(*JAVA: file) const;
+  end-pr;
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // --
+  dcl-pr @BufferedOutputStream  object(*JAVA: bufferedOutputStream) extproc(*JAVA: bufferedOutputStream: *constructor);
+    dcl-parm inOutputStream     object(*JAVA: outputStream) const;
+  end-pr;
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // --
+  dcl-pr @TransformerFactory#newInstance  object(*JAVA: transformerFactory) extproc(*JAVA: transformerFactory: 'newInstance')  static  end-pr;
+  // --
+  dcl-pr @TransformerFactory#newTransformer  object(*JAVA: transformer) extproc(*JAVA: transformerFactory: 'newTransformer');
+    dcl-parm inSource    object(*JAVA: source) const;
+  end-pr;
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // --
+  dcl-pr @Transformer#setParameter   extproc(*JAVA: transformer: 'setParameter');
+    dcl-parm inParameter              object(*JAVA: string) const;
+    dcl-parm inValue                  object(*JAVA: object) const;
+  end-pr;
+  // --
+  dcl-pr @Transformer#transform  extproc(*JAVA: transformer: 'transform');
+    dcl-parm inSource        object(*JAVA: source) const;
+    dcl-parm inResult        object(*JAVA: result) const;
+  end-pr;
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // --
+  dcl-pr @SAXResult      object(*JAVA: saxResult) extproc(*JAVA: saxResult: *constructor);
+    dcl-parm inHandler   object(*JAVA: contentHandler) const;
+  end-pr;
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
