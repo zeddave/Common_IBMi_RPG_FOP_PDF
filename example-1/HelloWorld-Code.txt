@@ -10,6 +10,13 @@
 ###- Change main Template from '/' to "data"...
 	<xsl:template match="data">
 
+						<fo:block>     
+					  		<xsl:value-of select="line1"/>
+						</fo:block>
+						<fo:block>     
+					  		<xsl:value-of select="line2"/>
+						</fo:block>
+
 
 
 
@@ -23,12 +30,14 @@
 	</line2>
 </data>
 
+
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 <!-- IMAGE Example -->					
 					<fo:block-container absolute-position="fixed" left="5mm" right="15mm" top="40mm" height="200px" background-color="blue">
-						<fo:block margin-top="5mm"> 
+						<fo:block margin-left="5mm" margin-top="5mm"> 
 							<fo:external-graphic height="160px" content-width="scale-down-to-fit" scaling="uniform" content-height="scale-down-to-fit">
-								<xsl:attribute name="src">JW Quote.jpg</xsl:attribute>
+								<xsl:attribute name="src">file:///c:/workspace/Common FOP Project/example-1/powerup18.jpg</xsl:attribute>
 							</fo:external-graphic>	
 						</fo:block>
 					</fo:block-container>
@@ -37,14 +46,12 @@
 ### - Incorporate Template usage
 
 				<!-- Body Section -->
-				<fo:flow flow-name="main-page-body">
 					<fo:block-container absolute-position="fixed" left="50mm" top="2mm" right="10mm">
 						<fo:block>     
 					  		<xsl:value-of select="/data/line1"/>
 							<xsl:apply-templates/> 
 						</fo:block>
 					</fo:block-container>
- 				</fo:flow>
 
 
   <xsl:template match="line1">
@@ -91,7 +98,7 @@
 
 <!-- Be sure to remove IMAGE Example, above -->					
 
-  <xsl:include href="HellowWorld2.xsl" />   
+  <xsl:include href="HelloWorld2.xsl" />   
   
   						<xsl:call-template name="banner" />
   
@@ -125,6 +132,10 @@
 
 2) XML Change.
 
+	<xsl:template match="/">
+
+
+<?xml version="1.0" encoding="UTF-8"?>
 	<employees>
 		<employee empid="1">
 			<firstname>Tony</firstname>
@@ -157,6 +168,7 @@
 	</employees>
 
 
+ 					<fo:block-container>
 						<fo:block>     
 							<fo:table table-layout="fixed" width="100%" border="1px solid #000000">
 								<fo:table-column column-width="10mm"/>
@@ -207,7 +219,7 @@
 								
 							</fo:table>
 						</fo:block>
-
+					</fo:block-container>
 
 ### - To show Sorting
 											<xsl:sort select="lastname" />
